@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 10:17:35 by segarcia          #+#    #+#              #
-#    Updated: 2022/10/06 12:53:48 by segarcia         ###   ########.fr        #
+#    Updated: 2022/10/06 13:00:52 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re libft
+.PHONY:	all clean fclean re

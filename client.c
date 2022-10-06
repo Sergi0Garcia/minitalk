@@ -6,11 +6,10 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:28:31 by segarcia          #+#    #+#             */
-/*   Updated: 2022/10/06 12:54:26 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:26:28 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
 #include "./libft/libft.h"
@@ -26,7 +25,7 @@ static void	send_char(int pid, char current_char)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		usleep(200);
 		current_bit++;
 	}
 }

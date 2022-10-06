@@ -6,14 +6,12 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:32:12 by segarcia          #+#    #+#             */
-/*   Updated: 2022/10/06 12:54:34 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:17:30 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
-#include <stdlib.h>
 #include "./libft/libft.h"
 
 static void	print_pid(void)
@@ -28,6 +26,7 @@ static void	print_pid(void)
 		ft_putstr_fd("Error printing PID\n", 1);
 		exit(EXIT_FAILURE);
 	}
+	ft_putstr_fd("PID: ", 1);
 	ft_putstr_fd(str, 1);
 	ft_putstr_fd("\n", 1);
 	free(str);
