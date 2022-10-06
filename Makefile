@@ -5,37 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/20 12:49:46 by segarcia          #+#    #+#              #
-#    Updated: 2022/10/06 11:35:29 by segarcia         ###   ########.fr        #
+#    Created: 2022/10/06 10:17:35 by segarcia          #+#    #+#              #
+#    Updated: 2022/10/06 12:53:48 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	ft_atoi.c 			\
-					ft_isdigit.c 		\
-					ft_itoa.c 			\
-					ft_putchar_fd.c 	\
-					ft_putstr_fd.c  	\
-					ft_strlen.c
+SERVER		= server
+CLIENT		= client
+LIBFT		= ./libft/libft.a
+LIBFT_PATH	= ./libft
 
-OBJS			= $(SRCS:.c=.o)
+CC			= gcc
+RM			= rm -f
+CFLAGS		= -Wall -Werror -Wextra
 
-CC				= gcc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror
+all: $(SERVER) $(CLIENT)
 
-NAME			= libft.a
+$(LIBFT):
+	@make -C $(LIBFT_PATH)
 
-all:			$(NAME)
+$(SERVER): $(LIBFT) server.c
+	$(CC) $(CFLAGS) server.c $(LIBFT) -o $(SERVER)
 
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+$(CLIENT): $(LIBFT) client.c
+	$(CC) $(CFLAGS) client.c $(LIBFT) -o $(CLIENT)
 
-clean:
-				$(RM) $(OBJS)
+clean :
+	@make clean -C $(LIBFT_PATH)
+	@$(RM) *.o
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean: clean
+	@make fclean -C $(LIBFT_PATH)
+	@rm -f $(SERVER) $(CLIENT)
 
-re:				fclean $(NAME)
+re: fclean all
 
-.PHONY:			all clean fclean re bonus
+.PHONY:	all clean fclean re libft
